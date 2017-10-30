@@ -2,13 +2,25 @@ let routes = require('express').Router(),
     controlQ = require('../controllers/questionController'),
     controlA = require('../controllers/answerController'),
     auth = require('../helpers/authHelp')
-
+/**
+ * @api {get} / Get all questions
+ * @apiGroup Hacktivoverflow
+ * @apiDescription This request is using to get all questions.
+ */
 //get all
 routes.get('/',controlQ.getQuestion)
-
+/**
+ * @api {get} /:id Get one question
+ * @apiGroup Hacktivoverflow
+ * @apiDescription This request is using to get one question.
+ */
 //get one
 routes.get('/:id',controlQ.getOneQuestion)
-
+/**
+ * @api {post} / Post new question
+ * @apiGroup Hacktivoverflow
+ * @apiDescription This request is using to post new question. Before save information about question, request is verified.
+ */
 //post new question
 routes.post('/',auth.verify,controlQ.postQuestion)
 
